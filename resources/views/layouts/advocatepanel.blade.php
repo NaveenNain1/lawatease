@@ -557,7 +557,7 @@ if(Auth::user()->utype!="advocate"){
                             </ul>
                         </li>
                         
-                     <li> <a class="waves-effect waves-dark" href="{{url('logout')}}" aria-expanded="false"><i class="far fa-circle text-danger"></i><span class="hide-menu">Logout</span></a></li>
+                     <li> <a class="waves-effect waves-dark" href="{{url('logout')}}" aria-expanded="false"><i class="far fa-circle text-danger"></i><span class="hide-menu">Logout</span></a></li>s
                       
    
                     </ul>
