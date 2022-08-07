@@ -17,8 +17,6 @@ Customer Panel
  <h2>“Leave Your Legal Worries On Us & Achieve Your Personal and Business Goals”</h2>
  </div>
  
- Nitish
-
                 </div>
             </div>
         </div>
