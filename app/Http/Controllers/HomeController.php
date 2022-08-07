@@ -28,8 +28,10 @@ class HomeController extends Controller
         return view('home');
     }elseif($utype=="admin"){
         return redirect('/admin/home');
+    }else if($utype=="advocate"){
+            return redirect('/advocate/home');
     }else{
-        
+
     }
     }
 }
