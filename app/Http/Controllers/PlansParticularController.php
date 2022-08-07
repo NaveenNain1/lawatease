@@ -15,6 +15,18 @@ class PlansParticularController extends Controller
  $get=PlansParticular::get();
       return view('admin.plans.particular',compact('get'));
     }
+         public function change_can_avail(Request $request){
+ $change=PlansParticular::find($request->id);
+ if($change->can_avail==1){
+$change->can_avail=0;
+ }else{
+  $change->can_avail=1;
+
+ }
+ $change->update();
+      return 1;
+    }
+    
          public function store(request $request){
 
  $Validator=Validator::make($request->all(),[
