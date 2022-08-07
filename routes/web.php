@@ -44,8 +44,9 @@ Route::post('/admin/plans/particular/update', [App\Http\Controllers\PlansParticu
 Route::get('admin/plans/PlansStructure', [App\Http\Controllers\PlansStructureController::class, 'index']);
 Route::post('admin/plans/PlansStructure', [App\Http\Controllers\PlansStructureController::class, 'store']);
 ///////////adv 
-Route::any('advocate/home', [App\Http\Controllers\AdvocateController::class, 'index']);
+Route::get('advocate/home', [App\Http\Controllers\AdvocateController::class, 'index']);
 
+Route::get('advocate/empanellment', [App\Http\Controllers\EmpanellmentDataController::class, 'index']);
 
 
 

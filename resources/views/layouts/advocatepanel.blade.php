@@ -361,6 +361,9 @@ if(Auth::user()->utype!="advocate"){
                         </li>
  
                         <li> <a class="waves-effect waves-dark" href="{{url('home')}}" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{url('advocate/empanellment')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">Empanellment Form</span></a></li>
+
+                        
 
                        
                       
