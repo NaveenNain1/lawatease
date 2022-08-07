@@ -8,7 +8,13 @@ PlansStructure
 <div class="alert alert-success">
 Success! data has been saved successfully.</div>
 @endif
-<div class="container">
+<?php $data_saved=[]; ?>
+@if(count($plans_structure)>0)
+@foreach($plans_structure as $plans_structure2)
+<?php $data_saved[$plans_structure2->plans_id.'_'.$plans_structure2->plans_particulars_id ]=$plans_structure2->qty; ?>
+@endforeach
+@endif
+ <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -36,7 +42,13 @@ Plans
 <tr><th>{{$PlansParticular2->name}}</th>
 @foreach($plans as $plans2)
 <td>
-<input type="number" class="form-control" name="data[{{$plans2->id}}_{{$PlansParticular2->id}}]" value="0" onclick="this.select();" required>
+<input type="number" class="form-control" name="data[{{$plans2->id}}_{{$PlansParticular2->id}}]" value="<?php
+if(isset($data_saved[$plans2->id.'_'.$PlansParticular2->id])){
+	echo $data_saved[$plans2->id.'_'.$PlansParticular2->id];
+}else{
+	echo "0";
+}
+?>" onclick="this.select();" required>
 </td>
 @endforeach
 		</tr>
