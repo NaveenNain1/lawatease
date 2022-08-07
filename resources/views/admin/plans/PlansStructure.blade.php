@@ -4,6 +4,10 @@
 @section('title')
 PlansStructure
 @endsection
+@if(isset($saved) || isset($_GET['s']))
+<div class="alert alert-success">
+Success! data has been saved successfully.</div>
+@endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -17,7 +21,7 @@ PlansStructure
 <table class="table table-bordered table-stripe">
 	<thead>
 		<tr>
-<th rowspan="2" style="vertical-align: top">Particular</th><th colspan="2000" style="text-align: center">
+<th rowspan="2" style="vertical-align: top"><br>Particular</th><th colspan="2000" style="text-align: center">
 Plans
 </th>
 		</tr>
@@ -32,7 +36,7 @@ Plans
 <tr><th>{{$PlansParticular2->name}}</th>
 @foreach($plans as $plans2)
 <td>
-<input type="number" class="form-control" name="data['{{$plans2->id}}_{{$PlansParticular2->id}}']" value="0" onclick="this.select();">
+<input type="number" class="form-control" name="data[{{$plans2->id}}_{{$PlansParticular2->id}}]" value="0" onclick="this.select();" required>
 </td>
 @endforeach
 		</tr>

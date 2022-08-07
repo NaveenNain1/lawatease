@@ -42,4 +42,5 @@ Route::get('/admin/plans/particular', [App\Http\Controllers\PlansParticularContr
 Route::post('/admin/plans/particular', [App\Http\Controllers\PlansParticularController::class, 'store']);
 Route::post('/admin/plans/particular/update', [App\Http\Controllers\PlansParticularController::class, 'update']);
 Route::get('admin/plans/PlansStructure', [App\Http\Controllers\PlansStructureController::class, 'index']);
+Route::post('admin/plans/PlansStructure', [App\Http\Controllers\PlansStructureController::class, 'store']);
  
