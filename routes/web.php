@@ -45,8 +45,9 @@ Route::get('admin/plans/PlansStructure', [App\Http\Controllers\PlansStructureCon
 Route::post('admin/plans/PlansStructure', [App\Http\Controllers\PlansStructureController::class, 'store']);
 Route::get('admin/plans/particular/change_can_avail', [App\Http\Controllers\PlansParticularController::class, 'change_can_avail']);
 ///////////adv 
-Route::any('advocate/home', [App\Http\Controllers\AdvocateController::class, 'index']);
+Route::get('advocate/home', [App\Http\Controllers\AdvocateController::class, 'index']);
 
+Route::get('advocate/empanellment', [App\Http\Controllers\EmpanellmentDataController::class, 'index']);
 
 
 

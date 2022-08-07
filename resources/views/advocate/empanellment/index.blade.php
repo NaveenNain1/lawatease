@@ -2,7 +2,7 @@
 
 @section('content')
 @section('title')
-Advocate Panel
+Empanellment Form
 @endsection
 <div class="container">
     <div class="row justify-content-center">
@@ -11,11 +11,12 @@ Advocate Panel
  
                 <div class="card-body">
                     <div style="text-align:center">
-                 
- <h2><b>Welcome to Law At EaseTM Family </b></h2> 
- <center><b><u>Core Values</u></b>	</center>
- <img src="{{url('image/image1.png')}}">
-  
+                <a href="#" style="font-size:40px; margin-top:10px;" class="btn btn-info">Individual Advocate</a>	
+                <a href="#" style="font-size:40px; margin-top:10px; cursor: not-allowed;" class="btn btn-info disabled">Law Firm</a>	
+
+
+	
+    
  </div>
                 </div>
             </div>
