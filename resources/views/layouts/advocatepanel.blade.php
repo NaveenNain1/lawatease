@@ -20,13 +20,13 @@ if(Auth::user()->utype!="advocate"){
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url('assets/images/favicon.png')}}">
     <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
     <!-- This page CSS -->
     <!-- chartist CSS -->
-    <link href="../assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <link href="{{url('assets/node_modules/morrisjs/morris.css')}}" rel="stylesheet">
     <!--Toaster Popup message CSS -->
-    <link href="../assets/node_modules/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <link href="{{url('assets/node_modules/toast-master/css/jquery.toast.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{url('admin/dist/css/style.min.css')}}" rel="stylesheet">
     <!-- Dashboard 1 Page CSS -->
@@ -66,14 +66,14 @@ if(Auth::user()->utype!="advocate"){
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="{{url('assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <img src="{{url('assets/images/logo-light-icon.png')}}" alt="homepage" class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                          <!-- dark Logo text -->
-                         <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                         <img src="{{url('assets/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
                          <!-- Light Logo text -->    
                          <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                 </div>
@@ -362,6 +362,8 @@ if(Auth::user()->utype!="advocate"){
  
                         <li> <a class="waves-effect waves-dark" href="{{url('home')}}" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li> <a class="waves-effect waves-dark" href="{{url('advocate/empanellment')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">Empanellment Form</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{url('advocate/empanellment')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">My Bank Details
+</span></a></li>
 
                         
 
@@ -443,7 +445,7 @@ if(Auth::user()->utype!="advocate"){
     <!-- Popup message jquery -->
     <script src="../assets/node_modules/toast-master/js/jquery.toast.js"></script>
     <!-- Chart JS -->
-    <script src="dist/js/dashboard1.js"></script>
+    <script src="{{url('admin/dist/js/dashboard1.js')}}"></script>
     <script src="../assets/node_modules/toast-master/js/jquery.toast.js"></script>
    
   

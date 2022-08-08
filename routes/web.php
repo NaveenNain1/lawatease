@@ -47,6 +47,7 @@ Route::post('admin/plans/PlansStructure', [App\Http\Controllers\PlansStructureCo
 Route::get('advocate/home', [App\Http\Controllers\AdvocateController::class, 'index']);
 
 Route::get('advocate/empanellment', [App\Http\Controllers\EmpanellmentDataController::class, 'index']);
+Route::get('advocate/empanellment_add', [App\Http\Controllers\EmpanellmentDataController::class, 'add']);
 
 
 

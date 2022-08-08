@@ -14,4 +14,8 @@ class EmpanellmentDataController extends Controller
     public function index(){
         return view('advocate/empanellment/index');
     }
+    public function add(){
+        return view('advocate/empanellment/empanellment_add');
+    }
+    
 }
