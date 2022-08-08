@@ -111,12 +111,17 @@ value="{{$_POST['unit']}}"
 </form>
 <hr>
 @if(count($get)>0)
-<table class="table-bordered table stable-stripe">
+<div class="table-responsive">
+<table class="table-bordered table stable-stripe " width="100%">
 <tr><th>Name</th><th>Unit</th><th>Can Avail</th><th>Edit</th><th>Delete</th></tr>
 @foreach($get as $get2)
 <tr><td>{{$get2->name}}</td><td>{{$get2->unit}}</td>
 <td><label class="switch">
-  <input type="checkbox" checked>
+  <input type="checkbox" 
+@if($get2->can_avail==1)
+ checked 
+@endif
+   onclick="change_can_avail({{$get2->id}})">
   <span class="slider round"></span>
 </label></td>
   <td><a href="javascript:;" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal{{$get2->id}}">Edit</a>
@@ -153,9 +158,21 @@ value="{{$_POST['unit']}}"
 </td><td><a href="" class="btn btn-danger btn-sm">Delete</a></td></tr>
 
 @endforeach
-</table>
+</table></div>
 @endif
-
+<script type="text/javascript">
+  function change_can_avail(id){
+    var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       // Typical action to be performed when the document is ready:
+       // document.getElementById("success").innerHTML = ;
+    }
+};
+xhttp.open("GET", "{{url('admin/plans/particular/change_can_avail')}}?id="+id, true);
+xhttp.send();
+  }
+</script>
             </div>
         </div>
     </div>

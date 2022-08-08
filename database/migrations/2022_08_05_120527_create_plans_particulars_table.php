@@ -17,6 +17,7 @@ class CreatePlansParticularsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('unit');
+            $table->unsignedBigInteger('can_avail')->default('1');
 
             $table->timestamps();
         });

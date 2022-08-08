@@ -24,10 +24,12 @@ Success! data has been saved successfully.</div>
                      @if(count($plans)>0 and count($PlansParticular)>0)
 <form method="post">
 	@csrf
+	<div class="table-responsive">
+
 <table class="table table-bordered table-stripe">
 	<thead>
 		<tr>
-<th rowspan="2" style="vertical-align: top"><br>Particular</th><th colspan="2000" style="text-align: center">
+<th rowspan="2" style="vertical-align: top"><br>Particular</th><th colspan="{{count($plans)}}" style="text-align: center">
 Plans
 </th>
 		</tr>
@@ -55,7 +57,7 @@ if(isset($data_saved[$plans2->id.'_'.$PlansParticular2->id])){
 		@endforeach
 		<tr><td><button class="btn btn-primary btn-sm" type="submit">Save</button></td></tr>
 	</tbody>
-</table></form>
+</table></div></form>
                      @endif
                 </div>
             </div>
