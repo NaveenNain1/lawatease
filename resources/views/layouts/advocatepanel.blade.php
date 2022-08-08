@@ -448,33 +448,8 @@ if(Auth::user()->utype!="advocate"){
     <script src="{{url('admin/dist/js/dashboard1.js')}}"></script>
     <script src="../assets/node_modules/toast-master/js/jquery.toast.js"></script>
    
-  
-
-  	<script>
-  		$(document).ready(function() {
-  			$('#example').DataTable();
-  		  } );
-  	</script>
-  	<script>
-  		$(document).ready(function() {
-  			var table = $('#example2').DataTable( {
-  				lengthChange: false,
-  				buttons: [ 'copy', 'excel', 'pdf', 'print']
-  			} );
-
-  			table.buttons().container()
-  				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
-  		} );
-
-  	</script>
-  	<!-- Notification Js -->
-    <script src="{{url('vertical/assets/plugins/notifications/js/lobibox.min.js')}}"></script>
-    <script src="{{url('vertical/assets/plugins/notifications/js/notifications.min.js')}}"></script>
-    <script src="{{('vertical/assets/plugins/notifications/js/notification-custom-script.js')}}"></script>
-  
-  	<!--app JS-->
-  	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
-  	<script src="{{url('vertical/assets/js/app.js')}}"></script>
+ 
+ 
     @yield('script')
 
  
