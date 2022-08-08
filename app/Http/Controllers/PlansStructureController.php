@@ -28,6 +28,7 @@ class PlansStructureController extends Controller
 $ids=explode('_', $key);
 $plans_id=$ids[0];
 $plans_particulars_id=$ids[1];
+if($val!=0){
 $check=plans_structure::where('plans_id',$plans_id)->where('plans_particulars_id',$plans_particulars_id)->get();
 if(count($check)>0){
 	$check=plans_structure::where('plans_id',$plans_id)->where('plans_particulars_id',$plans_particulars_id);
@@ -40,7 +41,7 @@ $plans_structure->plans_id=$plans_id;
 $plans_structure->plans_particulars_id=$plans_particulars_id;
 $plans_structure->save();
 }
-          	 }
+          	 }}
      $saved=1;     	 
     	return redirect("admin/plans/PlansStructure?s");
     }

@@ -25,7 +25,7 @@ Success! data has been saved successfully.</div>
 <form method="post">
 	@csrf
 	<div class="table-responsive">
-
+<p style="color:red">Note: You can put it zero if not want to give service (Plan wise)</p>
 <table class="table table-bordered table-stripe">
 	<thead>
 		<tr>
