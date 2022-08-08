@@ -21,7 +21,7 @@ if(Auth::user()->utype!="advocate"){
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{url('assets/images/favicon.png')}}">
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Advocate::Law At Ease</title>
     <!-- This page CSS -->
     <!-- chartist CSS -->
     <link href="{{url('assets/node_modules/morrisjs/morris.css')}}" rel="stylesheet">
@@ -46,7 +46,7 @@ if(Auth::user()->utype!="advocate"){
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Elite admin</p>
+            <p class="loader__label">Law@Ease</p>
         </div>
     </div>
     <!-- ============================================================== -->
@@ -62,20 +62,20 @@ if(Auth::user()->utype!="advocate"){
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{url('/advocate/home')}}">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
                             <img src="{{url('assets/images/logo-icon.png')}}" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="{{url('assets/images/logo-light-icon.png')}}" alt="homepage" class="light-logo" />
+                            <img src="{{url('assets/images/logo-light-icon33.png')}}" alt="homepage" class="light-logo" style="width: 50px;" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                          <!-- dark Logo text -->
-                         <img src="{{url('assets/images/logo-text.png')}}" alt="homepage" class="dark-logo" />
+                         <p   alt="homepage" class="dark-logo" ><b style="color:#ffffff">Law</b> At Ease</p>
                          <!-- Light Logo text -->    
-                         <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                         <p class="light-logo" alt="homepage" ><b style="color:#ffffff">Law</b> At Ease</p></span> </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -361,8 +361,8 @@ if(Auth::user()->utype!="advocate"){
                         </li>
  
                         <li> <a class="waves-effect waves-dark" href="{{url('home')}}" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{url('advocate/empanellment')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">Empanellment Form</span></a></li>
-                        <li> <a class="waves-effect waves-dark" href="{{url('advocate/empanellment')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">My Bank Details
+                        <li> <a class="waves-effect waves-dark" href="{{url('advocate/empanellment')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">Empanellment</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{url('advocate/bank_details')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">My Bank Details
 </span></a></li>
 
                         
@@ -423,10 +423,10 @@ if(Auth::user()->utype!="advocate"){
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <script src="{{url('/assets/node_modules/jquery/jquery-3.2.1.min.js')}}"></script>
     <!-- Bootstrap popper Core JavaScript -->
-    <script src="../assets/node_modules/popper/popper.min.js"></script>
-    <script src="../assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{url('/assets/node_modules/popper/popper.min.js')}}"></script>
+    <script src="{{url('/assets/node_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="{{url('admin/dist/js/perfect-scrollbar.jquery.min.js')}}"></script>
     <!--Wave Effects -->
@@ -439,42 +439,16 @@ if(Auth::user()->utype!="advocate"){
     <!-- This page plugins -->
     <!-- ============================================================== -->
     <!--morris JavaScript -->
-    <script src="../assets/node_modules/raphael/raphael-min.js"></script>
-    <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
-    <script src="../assets/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{url('/assets/node_modules/raphael/raphael-min.js')}}"></script>
+    <script src="{{url('/assets/node_modules/morrisjs/morris.min.js')}}"></script>
+    <script src="{{url('/assets/node_modules/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
     <!-- Popup message jquery -->
-    <script src="../assets/node_modules/toast-master/js/jquery.toast.js"></script>
+    <script src="{{url('/assets/node_modules/toast-master/js/jquery.toast.js')}}"></script>
     <!-- Chart JS -->
     <script src="{{url('admin/dist/js/dashboard1.js')}}"></script>
-    <script src="../assets/node_modules/toast-master/js/jquery.toast.js"></script>
+    <script src="{{url('assets/node_modules/toast-master/js/jquery.toast.js')}}"></script>
    
-  
-
-  	<script>
-  		$(document).ready(function() {
-  			$('#example').DataTable();
-  		  } );
-  	</script>
-  	<script>
-  		$(document).ready(function() {
-  			var table = $('#example2').DataTable( {
-  				lengthChange: false,
-  				buttons: [ 'copy', 'excel', 'pdf', 'print']
-  			} );
-
-  			table.buttons().container()
-  				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
-  		} );
-
-  	</script>
-  	<!-- Notification Js -->
-    <script src="{{url('vertical/assets/plugins/notifications/js/lobibox.min.js')}}"></script>
-    <script src="{{url('vertical/assets/plugins/notifications/js/notifications.min.js')}}"></script>
-    <script src="{{('vertical/assets/plugins/notifications/js/notification-custom-script.js')}}"></script>
-  
-  	<!--app JS-->
-  	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
-  	<script src="{{url('vertical/assets/js/app.js')}}"></script>
+   
     @yield('script')
 
  
