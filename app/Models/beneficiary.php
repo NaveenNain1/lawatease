@@ -11,6 +11,18 @@ class beneficiary extends Model
     protected $table="beneficiaries";
 
     protected $fillable = [
+    	'name_of_legal_entity',
+'nature_of_entity',
+'cin',
+'registration_date',
+'gst_no',
+'designation',
+'business_entity_registration_certificate',
+'pan_card',
+'address_proof',
+'gst_certificate',
+'authorization_letter',
+'dob_proof',
 'first_name',
 'middle_name',
 'last_name',
@@ -31,5 +43,7 @@ class beneficiary extends Model
 'driving_licence',
 'uid',
 'is_verified',
+'is_business_entity',
+
     ];
 }

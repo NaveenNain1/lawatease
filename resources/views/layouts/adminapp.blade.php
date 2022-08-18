@@ -98,17 +98,17 @@ if(Auth::user()->utype!="admin"){
 					</a>
 				</li>
 				     <li>
-					<a href="{{url('customer/beneficiary/view')}}" >
+					<a href="{{url('admin/advocates/view')}}" >
 						<div class="parent-icon "><i class="bx bx-right-arrow-alt"></i>
 						</div>
-						<div class="menu-title">My beneficiary</div>
+						<div class="menu-title">View Advocates</div>
 					</a>
 				</li>
 				 <li>
-					<a href="{{url('customer/bdfdeneficiary/addfdfd')}}" >
+					<a href="{{url('admin/customers/view')}}" >
 						<div class="parent-icon "><i class="bx bx-right-arrow-alt"></i>
 						</div>
-						<div class="menu-title">My LIPTM</div>
+						<div class="menu-title">Customers</div>
 					</a>
 				</li>
 				 <li>

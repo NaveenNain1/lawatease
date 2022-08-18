@@ -21,7 +21,7 @@ if(Auth::user()->utype!="advocate"){
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{url('assets/images/favicon.png')}}">
-    <title>Advocate::Law At Ease</title>
+    <title>@yield('title')</title>
     <!-- This page CSS -->
     <!-- chartist CSS -->
     <link href="{{url('assets/node_modules/morrisjs/morris.css')}}" rel="stylesheet">
@@ -166,7 +166,7 @@ if(Auth::user()->utype!="advocate"){
                                         <div class="message-center">
                                             <!-- Message -->
                                             <a href="javascript:void(0)">
-                                                <div class="user-img"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                                <div class="user-img"> <img src="{{url('/assets/images/users/1.jpg')}}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
                                                 <div class="mail-contnet">
                                                     <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
                                             </a>
@@ -311,7 +311,7 @@ if(Auth::user()->utype!="advocate"){
                         <!-- User Profile -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class=""> <span class="hidden-md-down">Mark &nbsp;<i class="fa fa-angle-down"></i></span> </a>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{url('/assets/images/users/1.jpg')}}" alt="user" class=""> <span class="hidden-md-down">{{Auth::user()->name}} &nbsp;<i class="fa fa-angle-down"></i></span> </a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <!-- text-->
                                 <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
@@ -326,7 +326,7 @@ if(Auth::user()->utype!="advocate"){
                                 <!-- text-->
                                 <div class="dropdown-divider"></div>
                                 <!-- text-->
-                                <a href="login.html" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
+                                <a href="{{url('logout')}}" class="dropdown-item"><i class="fa fa-power-off"></i> Logout</a>
                                 <!-- text-->
                             </div>
                         </li>
@@ -350,17 +350,17 @@ if(Auth::user()->utype!="advocate"){
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"><span class="hide-menu">{{Auth::user()->name}}</span></a>
+                        <li class="user-pro"> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><img src="{{url('/assets/images/users/1.jpg')}}" alt="user-img" class="img-circle"><span class="hide-menu">{{Auth::user()->name}}</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
                                 <li><a href="javascript:void(0)"><i class="ti-wallet"></i> My Balance</a></li>
                                 <li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
                                 <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>
-                                <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="{{url('logout')}}"><i class="fa fa-power-off"></i> Logout</a></li>
                             </ul>
                         </li>
  
-                        <li> <a class="waves-effect waves-dark" href="{{url('home')}}" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li> <a class="waves-effect waves-dark" href="{{url('advocate/home')}}" aria-expanded="false"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li> <a class="waves-effect waves-dark" href="{{url('advocate/empanellment')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">Empanellment</span></a></li>
                         <li> <a class="waves-effect waves-dark" href="{{url('advocate/bank_details')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">My Bank Details
 </span></a></li>
@@ -411,7 +411,7 @@ if(Auth::user()->utype!="advocate"){
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer">
-            © 2020 Eliteadmin by themedesigner.in
+            © 2022 <a href="https://lawatease.com/">Law At Ease</a>
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
@@ -449,11 +449,6 @@ if(Auth::user()->utype!="advocate"){
     <script src="{{url('assets/node_modules/toast-master/js/jquery.toast.js')}}"></script>
    
    
-<<<<<<< HEAD
- 
- 
-=======
->>>>>>> b3a69d70c5cdc9f9c6b355ee860073bed7d5d072
     @yield('script')
 
  

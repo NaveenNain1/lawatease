@@ -13,12 +13,190 @@ Advocate Panel
                     <div style="text-align:center">
                  
  <h2><b>Details of the Individual Lawyer
- </b></h2> 
+ </b></h2> </div>
+  
+ 
+<form method="post">
+	@csrf
+ <b> Details of the Individual Lawyer:-</b><hr>
+  <div class="row">
+  <div class="form-group col-sm-4">
+    <label for="first_name">First Name*</label>
+    <input type="text" class="form-control" required id="first_name" name="first_name"  placeholder="Enter First Name">
+   </div>
+  <div class="form-group col-sm-4">
+    <label for="middle_name">Middle Name</label>
+    <input type="text" class="form-control"  id="middle_name" name="middle_name"  placeholder="Enter Middle Name">
+   </div>
+     <div class="form-group col-sm-4">
+    <label for="last_name">Last Name*</label>
+    <input type="text" class="form-control" required id="last_name" name="last_name"  placeholder="Enter Last Name">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="father_name">Father Name*</label>
+    <input type="text" class="form-control" required id="father_name" name="father_name"  placeholder="Enter Father Name">
+   </div>
+<div class="form-group col-sm-4">
+    <label for="bar_council_enrollment_no">Bar Council Enrollment No*
+</label>
+    <input type="text" class="form-control" required id="bar_council_enrollment_no" name="bar_council_enrollment_no"  placeholder="Enter Bar Council Enrollment No">
+   </div>
+<div class="form-group col-sm-4">
+    <label for="date_of_bar_council_enrollment">Date of Bar Council Enrollment*</label>
+    <input type="date" class="form-control"  id="date_of_bar_council_enrollment" name="date_of_bar_council_enrollment"  >
+   </div>
 
- </div>
-                </div>
+<div class="form-group col-sm-4">
+    <label for="email_id">Email Id*</label>
+    <input type="email" class="form-control" required  id="email_id" name="email_id"  placeholder="Enter Email ID">
+   </div>
+
+<div class="form-group col-sm-4">
+    <label for="mobile_number">Mobile Number [linked with Aadhar Card]*</label>
+    <input type="number" class="form-control" required  id="mobile_number" name="mobile_number"  placeholder="Enter mobile No.">
+   </div>
+<div class="form-group col-sm-4">
+    <label for="whatsapp_no">Whatsapp No</label>
+    <input type="number" class="form-control"   id="whatsapp_no" name="whatsapp_no"  placeholder="Enter Whatsapp No.">
+   </div>
+
+
+  </div>
+<b>Permanent Address:-</b>
+<hr>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <label for="permanent_house_no">House No/ Flat No*</label>
+    <input type="text" class="form-control"  required id="permanent_house_no" name="permanent_house_no"  placeholder="Enter House No/ Flat No.">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="permanent_street">Street / Locality</label>
+    <input type="text" class="form-control"  id="permanent_street" name="permanent_street"  placeholder="Enter Street">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="permanent_district">District*</label>
+    <input type="text" class="form-control" required id="permanent_district" name="permanent_district"  placeholder="Enter District">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="permanent_state">State*</label>
+    <input type="text" class="form-control" required  id="permanent_state" name="permanent_state"  placeholder="Enter State">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="permanent_country">Country*</label>
+    <input type="text" class="form-control" required id="permanent_country" name="permanent_country"  placeholder="Enter Country">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="permanent_pincode">Pincode*</label>
+    <input type="number" class="form-control" required id="permanent_pincode" name="permanent_pincode"  placeholder="Enter Pincode">
+   </div>
+
+</div>
+
+<b>Correspondance Address:-</b> <div class="form-group form-check">
+    <input type="checkbox"   class="form-check-input" id="checked_address" onclick="onchange_correspondance_address_same_as_permanent_address(this);">
+    <label class="form-check-label" for="checked_address" >Tick here if Correspondance Address is Same as Permanent Address</label>
+  </div>
+<hr>
+<input type="hidden" value="0" name="correspondance_address_same_as_permanent_address"
+ id="correspondance_address_same_as_permanent_address" >
+<div class="row" id="correspondance_address_div">
+  <div class="form-group col-sm-4">
+    <label for="correspondance_house_no">House No/ Flat No*</label>
+    <input type="text" class="form-control"    id="correspondance_house_no" name="correspondance_house_no"  placeholder="Enter House No/ Flat No.">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="correspondance_house_no">Street / Locality</label>
+    <input type="text" class="form-control"  id="correspondance_street" name="correspondance_street"  placeholder="Enter Street">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="correspondance_district">District*</label>
+    <input type="text" class="form-control"   id="correspondance_district" name="correspondance_district"  placeholder="Enter District">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="correspondance_state">State*</label>
+    <input type="text" class="form-control"    id="correspondance_state" name="correspondance_state"  placeholder="Enter State">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="correspondance_country">Country*</label>
+    <input type="text" class="form-control"   id="correspondance_country" name="correspondance_country"  placeholder="Enter Country">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="correspondance_pincode">Pincode*</label>
+    <input type="number" class="form-control"    id="correspondance_pincode" name="correspondance_pincode"  placeholder="Enter Pincode">
+   </div>
+
+</div>
+
+ <div class="row">
+  <div class="form-group col-sm-4">
+    <label for="dob">Date Of Birth*</label>
+    <input type="date" class="form-control"  required id="dob" name="dob"   >
+   </div>
+   <div class="form-group col-sm-4">
+    <label for="gender">Gender*</label>
+    <select type="date" class="form-control"  required id="gender" name="gender"   >
+<option>Male</option>
+<option>Female</option>
+<option>Transgender</option>
+    </select>
+   </div>
+   
+ <div class="form-group col-sm-4">
+    <label for="marital_status">Marital Status*</label>
+ <select class="form-control" id="marital_status" name="marital_status"
+ >
+   <option >Single</option>
+   <option >Married</option>
+   <option >Divorced</option>
+   <option >Separated</option>
+   </select>
+    </div>
+    <div class="form-group col-sm-4">
+    <label for="aadhar_no">Aadhar No*</label>
+    <input type="number" class="form-control" required  id="aadhar_no" name="aadhar_no"
+      placeholder="Enter Aadhar Card No.">
+   </div>
+    <div class="form-group col-sm-4">
+    <label for="pan_no">PAN No*</label>
+    <input type="text" class="form-control" required id="pan_no" name="pan_no"
+      placeholder="Enter PAN Card No.">
+   </div>
+       <div class="form-group col-sm-4">
+    <label for="gst_no">Gst No</label>
+    <input type="text" class="form-control" id="gst_no" name="gst_no"
+      placeholder="Enter GST No.">
+   </div>
+</div>
+
+
+
+
+   <button type="submit" class="btn btn-primary">Next Step →</button>
+</form>
+                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+   function onchange_correspondance_address_same_as_permanent_address(checkbox) {
+     
+  if(checkbox.checked == true){
+      var correspondance_address_div = document.getElementById("correspondance_address_div");
+      var correspondance_address_same_as_permanent_address = document.getElementById("correspondance_address_same_as_permanent_address");
+   correspondance_address_div.style.display ='none';
+   correspondance_address_same_as_permanent_address.value=1;
+
+    }else{
+  var correspondance_address_div = document.getElementById("correspondance_address_div");
+   correspondance_address_div.style.display =null;
+         var correspondance_address_same_as_permanent_address = document.getElementById("correspondance_address_same_as_permanent_address");
+            correspondance_address_same_as_permanent_address.value=0;
+
+    }
+     }
+setInterval(function() {
+	  onchange_correspondance_address_same_as_permanent_address(document.getElementById('checked_address'));
+}, 1000)
+</script> 
 @endsection

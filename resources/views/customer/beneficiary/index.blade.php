@@ -17,7 +17,7 @@ Individual
                    </a> 
                    &nbsp; &nbsp;
                     &nbsp; &nbsp;
-                   <a href="add_business_entity" class="btn btn-primary btn-sm" style="font-size:30px;margin-top: 10px;">
+                   <a href="beneficiary/add_business_entity" class="btn btn-primary btn-sm" style="font-size:30px;margin-top: 10px;">
 Business Entity 
       
                    </a>

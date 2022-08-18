@@ -91,7 +91,7 @@ if(Auth::user()->utype!="customer"){
 					</a>
 				</li>
 				 <li>
-					<a href="{{url('customer/bdfdeneficiary/addfdfd')}}" >
+					<a href="{{url('customer/liptm/view')}}" >
 						<div class="parent-icon "><i class="bx bx-right-arrow-alt"></i>
 						</div>
 						<div class="menu-title">My LIPTM</div>

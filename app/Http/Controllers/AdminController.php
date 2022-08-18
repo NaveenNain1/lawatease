@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-
-class AdminController extends Controller
+use App\Models\User;
+    
+   class AdminController extends Controller
 {
     public function __construct()
     {
@@ -28,4 +29,12 @@ class AdminController extends Controller
         
     }
     }
+        public function customers_view()
+    {
+        $users=User::where('utype','customer')->get();
+          return view('admin/customers/view',compact('users'));
+     
+    }
+
+    
 }

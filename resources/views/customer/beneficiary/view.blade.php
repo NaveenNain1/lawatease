@@ -23,13 +23,21 @@ My beneficiary
 @if(count($beneficiary)>0)
 <div class="row">
     @foreach($beneficiary as $get2)
-<div class="btn btn-secondary col-sm-3 btn-sm" style="margin: 30px;font-size: 19px;">
+<div class="col-sm-3 btn-sm" style="margin: 30px;font-size: 19px;background-color:#cdbcd8;text-align: center;">
+<i class="bx bxs-business"></i> 
+@if($get2->is_business_entity==1)
+{{$get2->name_of_legal_entity}}
+
+@else
 {{$get2->first_name}}
+
+@endif
 <br>
 @if($get2->is_verifed==1)
-<i>(Verified)</i>
+
+<small><i>(Verified)</i></small>
 @else
-<i>(In Review)</i>
+<small><i>(In Review)</i></small>
 @endif
 </div>
 @endforeach
