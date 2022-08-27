@@ -4,7 +4,7 @@
 @section('title')
 Complete Empanellment Form
 @endsection
-<div class="container">
+<div class="container"> 
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -300,7 +300,7 @@ Please upload Details of Main Cases Handeled at least 3!<br>
 
 </div>
        @endif
-          @if(array_key_exists('Aadhar Card',$EmpanellmentDocumentsUploaded) and array_key_exists('Pan Card',$EmpanellmentDocumentsUploaded) and array_key_exists('Bar council registration certificate',$EmpanellmentDocumentsUploaded) and array_key_exists('LLB Passing certificate/degree',$EmpanellmentDocumentsUploaded))
+          @if(array_key_exists('Aadhar Card',$EmpanellmentDocumentsUploaded) and array_key_exists('PAN Card',$EmpanellmentDocumentsUploaded) and array_key_exists('Bar Council Registration Cert',$EmpanellmentDocumentsUploaded) and array_key_exists('LLB Passing Cert/ Degree',$EmpanellmentDocumentsUploaded))
   @else
        <?php $err=1; ?>
 <div class="alert alert-danger">

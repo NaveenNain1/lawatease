@@ -364,6 +364,8 @@ if(Auth::user()->utype!="advocate"){
                         <li> <a class="waves-effect waves-dark" href="{{url('advocate/empanellment')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">Empanellment</span></a></li>
                         <li> <a class="waves-effect waves-dark" href="{{url('advocate/bank_details')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">My Bank Details
 </span></a></li>
+ <li> <a class="waves-effect waves-dark" href="{{url('advocate/mycases')}}" aria-expanded="false"><i class="fa fa-arrow-right"></i><span class="hide-menu">My Cases
+</span></a></li>
 
                         
 

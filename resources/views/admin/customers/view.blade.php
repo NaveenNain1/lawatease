@@ -16,7 +16,9 @@ All Customers - >
 <table class="table">
 	<tr><th>Name</th><th>Email</th><th>Action</th></tr>
 	@foreach($users as $get)
-<tr><td>{{$get->name}}</td><td>{{$get->email}}</td><td><a href="viewplans/{{$get->id}}" class="btn btn-primary btn-sm ">View Plans</a></td></tr>
+<tr><td>{{$get->name}}</td><td>{{$get->email}}</td><td><a href="viewplans/{{$get->id}}" class="btn btn-primary btn-sm ">LIP LIST</a>
+&nbsp;
+<a href="viewbeneficiary/{{$get->id}}" class="btn btn-primary btn-sm ">Beneficiary</a></td></tr>
 	@endforeach
 </table>
 </div>

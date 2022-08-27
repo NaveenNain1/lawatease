@@ -45,10 +45,11 @@ $err=1;
     <label for="type">Type</label>
     <input type="text" class="form-control" id="type" name="type" list="typelist">
 <datalist id="typelist">
-<option value="Aadhar Card"/>
-<option value="Pan Card"/>
-<option value="Bar council registration certificate"/>
-<option value="LLB Passing certificate/degree"/>
+  <option value="Aadhar Card" />
+<option value="PAN Card" />
+<option value="Bar Council Registration Cert" />
+<option value="LLB Passing Cert/ Degree" />
+ 
 <option value="GST No"/>
 </datalist>
 </div>

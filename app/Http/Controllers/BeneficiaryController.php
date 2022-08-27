@@ -32,6 +32,24 @@ class BeneficiaryController extends Controller
         return view('customer.beneficiary.add_business_entity');
 
     }
+           public function viewbusiness_entity($id)
+   {
+$beneficiary = beneficiary::where('uid', Auth::user()->id)
+                            ->where('id',$id)
+                            ->where('is_business_entity',1)
+               ->get();
+        return view('customer.beneficiary.viewbusiness_entity',compact('beneficiary'));
+
+    }
+              public function viewindividual($id)
+   {
+$beneficiary = beneficiary::where('uid', Auth::user()->id)
+                            ->where('id',$id)
+                            ->where('is_business_entity',0)
+               ->get();
+        return view('customer.beneficiary.viewindividual',compact('beneficiary'));
+
+    }
     
       public function view()
     
@@ -217,6 +235,8 @@ $individual_beneficiaries->dob=$request->input("dob");
 $individual_beneficiaries->gender=$request->input("gender");
 $individual_beneficiaries->designation=$request->input("designation");
 $individual_beneficiaries->aadhar_no=$request->input("aadhar_no");
+
+$individual_beneficiaries->business_entity_registration_certificate=$business_entity_registration_certificate;
 $individual_beneficiaries->pan_card=$pan_card;
 $individual_beneficiaries->address_proof=$address_proof;
 $individual_beneficiaries->gst_certificate=$gst_certificate;

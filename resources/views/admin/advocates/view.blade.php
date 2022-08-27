@@ -16,7 +16,9 @@ All Advocates - >
 <table class="table">
 	<tr><th>Name</th><th>Email</th><th>Action</th></tr>
 	@foreach($users as $get)
-<tr><td>{{$get->name}}</td><td>{{$get->email}}</td><td><a href="view/{{$get->id}}" class="btn btn-primary btn-sm ">View</a></td></tr>
+<tr><td>{{$get->name}}</td><td>{{$get->email}}</td><td><a href="view/{{$get->id}}" class="btn btn-primary btn-sm ">View</a>&nbsp;
+<a href="addcases/{{$get->id}}" class="btn btn-primary btn-sm ">Add/View Cases</a>
+</td></tr>
 	@endforeach
 </table>
 </div>

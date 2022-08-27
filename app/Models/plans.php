@@ -15,6 +15,8 @@ class plans extends Model
 'discounted_price',
 'period',
 'period_type',
+'total_individual',
+'total_business_entity',
 'discount',
 'description',
     ];

@@ -26,9 +26,19 @@ class CustomerPlansController extends Controller
         $users=User::where('utype','customer')->where('id',$id)->get();
         $CustomerPlans=CustomerPlans::where('uid',$id)->get();
         $plans=plans::all();
-          return view('admin/customers/viewplans',compact('users','plans','CustomerPlans'));
+          return view('admin/customers/viewplans',compact('users','plans','CustomerPlans','id'));
      
     }
+     public function customers_viewplansdetails($id,$customer_plans_id)
+    {
+    	        $users=User::where('utype','customer')->where('id',$id)->get();
+if(count($users)>0){
+         $CustomerPlans=CustomerPlans::where('uid',$id)->where('id',$customer_plans_id)->get();
+ $CustomerPlansParticulars=CustomerPlansParticulars::where('uid',$id)->where('customer_plans_id',$customer_plans_id)->get();
+           return view('admin/customers/viewplans_details',compact('CustomerPlans','CustomerPlansParticulars','users'));
+     }
+    }
+
          public function customers_viewplans_store($id,Request $request)
     {
 $Validator=Validator::make($request->all(),

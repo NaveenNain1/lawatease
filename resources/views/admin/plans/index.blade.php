@@ -40,6 +40,7 @@ Success! data has been saved successfully.</div>
     <label for="discounted_price">Price (Including Discount)</label>
     <input type="number" class="form-control" id="discounted_price" name="discounted_price" <?php if(isset($_POST['discounted_price']) and isset($error)){ echo "value='{$_POST['discounted_price']}'"; } ?>>
   </div>
+
   <div class="form-group">
     <label for="discount">Amt without Discount</label>
     <input type="text" class="form-control" id="discount" name="discount" <?php if(isset($_POST['discount']) and isset($error)){ echo "value='{$_POST['discount']}'"; } ?>>
@@ -55,6 +56,14 @@ Success! data has been saved successfully.</div>
 <option <?php if(isset($_POST['period_type']) and $_POST['period_type']=="Annual"){ echo " selected "; } ?>>Annual</option>
 
     </select>
+  </div>
+  <div class="form-group">
+    <label for="total_individual">Total Individual</label>
+    <input type="number" class="form-control" id="total_individual" name="total_individual" <?php if(isset($_POST['total_individual']) and isset($error)){ echo "value='{$_POST['total_individual']}'"; } ?>>
+  </div>
+      <div class="form-group">
+    <label for="total_business_entity">Total Individual</label>
+    <input type="number" class="form-control" id="total_business_entity" name="total_business_entity" <?php if(isset($_POST['total_business_entity']) and isset($error)){ echo "value='{$_POST['total_business_entity']}'"; } ?>>
   </div>
     <div class="form-group">
     <label for="description">Description</label>

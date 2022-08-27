@@ -77,7 +77,7 @@ Success! {{\Session::get('success')}}
   <table class="table">
     <tr><th>Plan Name</th><th>Plan Price</th><th>Period</th><th>Type</th><th>Date</th><th></th></tr>
     @foreach($CustomerPlans as $CustomerPlans2)
-<tr><td>{{$CustomerPlans2->name}}</td><td>{{$CustomerPlans2->purchase_price}}</td><td>{{$CustomerPlans2->period}}</td><td>{{$CustomerPlans2->period_type}}</td><td>{{$CustomerPlans2->purchase_date}}</td><td><a href="">View Details</a></td></tr>
+<tr><td>{{$CustomerPlans2->name}}</td><td>{{$CustomerPlans2->purchase_price}}</td><td>{{$CustomerPlans2->period}}</td><td>{{$CustomerPlans2->period_type}}</td><td>{{$CustomerPlans2->purchase_date}}</td><td><a href="{{url('admin/customers/viewplans/'.$id.'/details/'.$CustomerPlans2->id)}}">View Details</a></td></tr>
     @endforeach
   </table>
 </div>

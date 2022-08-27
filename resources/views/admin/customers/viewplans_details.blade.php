@@ -1,4 +1,4 @@
-@extends('layouts.customerpanel')
+@extends('layouts.adminapp')
 
 @section('content')
 @section('title')
@@ -21,6 +21,9 @@ Success! {{\Session::get('success')}}
 
                 <div class="card-body">
 <div class="table-responsive">
+  @foreach($users as $get)
+    <b>Name:</b> {{$get->name}},<br> <b>Email:</b> {{$get->email}} 
+@endforeach
   <table class="table">
    <tr><th >LIPTM Purchased</th><td>{{$get->name}}</td><td></td><th>Payment Plan</th><td>{{$get->period_type}}</td></tr>
    <tr><th>Payment Due Date</th><td>Auto fetch from Zoho Subscription app</td><td></td>

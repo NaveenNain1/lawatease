@@ -19,6 +19,8 @@ class CreatePlansTable extends Migration
             $table->string('discounted_price');
             $table->string('period');
             $table->string('period_type');
+            $table->string('total_individual');
+            $table->string('total_business_entity');
             $table->string('discount')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();

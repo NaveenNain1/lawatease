@@ -39,7 +39,11 @@ $validator=Validator::make($request->all(),
 'period'=>'required|max:225',
 'period_type'=>'required|max:225',
 'discount'=>'max:225',
+'total_individual'=>'required|max:225',
+'total_business_entity'=>'required|max:225',
 'description'=>'max:225'
+
+
 ]
       );
       if($validator->fails()){
@@ -54,6 +58,8 @@ $plans->update(['name'=>$request->input('name'),
 'period'=>$request->input('period'),
 'period_type'=>$request->input('period_type'),
 'discount'=>$request->input('discount'),
+'total_individual'=>$request->input('total_individual'),
+'total_business_entity'=>$request->input('total_business_entity'),
 'description'=>$request->input('description')]);
     $plans=plans::all();
     $saved=1;
@@ -68,7 +74,9 @@ $plans->update(['name'=>$request->input('name'),
 'period'=>'required|max:225',
 'period_type'=>'required|max:225',
 'discount'=>'max:225',
-'description'=>'max:225'
+'description'=>'max:225',
+'total_individual'=>'required|max:225',
+'total_business_entity'=>'required|max:225',
 ]
      	);
      	if($validator->fails()){
@@ -83,6 +91,8 @@ $plans->period=$request->input('period');
 $plans->period_type=$request->input('period_type');
 $plans->discount=$request->input('discount');
 $plans->description=$request->input('description');
+$plans->total_individual=$request->input('total_individual');
+$plans->total_business_entity=$request->input('total_business_entity');
 $plans->save();
 $saved=1;
      	$plans=plans::all();

@@ -16,7 +16,7 @@ Advocate Panel
  </b></h2> </div>
   
  
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 	@csrf
  <b> Details of the Individual Lawyer:-</b><hr>
   <div class="row">
@@ -43,7 +43,7 @@ Advocate Panel
    </div>
 <div class="form-group col-sm-4">
     <label for="date_of_bar_council_enrollment">Date of Bar Council Enrollment*</label>
-    <input type="date" class="form-control"  id="date_of_bar_council_enrollment" name="date_of_bar_council_enrollment"  >
+    <input type="date" class="form-control"  id="date_of_bar_council_enrollment" name="date_of_bar_council_enrollment" required >
    </div>
 
 <div class="form-group col-sm-4">
@@ -167,9 +167,133 @@ Advocate Panel
       placeholder="Enter GST No.">
    </div>
 </div>
+<div><b>Educational & Professional Information           </b>
+  <div class="row">
+ <table class="table">
+   <tr><th>Education</th><th>Board / University</th><th>Date Of Passing</th><th>Percentage Marks</th><th>Achievement</th></tr>
+   <tr><th>10th*</th>
+    <td><input type="text" name="board_10" required placeholder="Board / University" class="form-control"></td>
+<td><input type="date" name="passing_date_10" required   class="form-control"></td>
+    <td><input type="number" name="percentage_10" required placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="achievement_10" required placeholder="Achievement" class="form-control"></td>
 
+   </tr>
+<tr><th>12th*</th>
+    <td><input type="text" name="board_12" required placeholder="Board / University" class="form-control"></td>
+<td><input type="date" name="passing_date_12" required   class="form-control"></td>
+    <td><input type="number" name="percentage_12" required placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="achievement_12" required placeholder="Achievement" class="form-control"></td>
 
+   </tr>
+   <tr><th>LLB*</th>
+    <td><input type="text" name="board_llb" required placeholder="Board / University" class="form-control"></td>
+<td><input type="date" name="passing_date_llb" required   class="form-control"></td>
+    <td><input type="number" name="percentage_llb" required placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="achievement_llb" required placeholder="Achievement" class="form-control"></td>
 
+   </tr>
+   <tr><th>LLM</th>
+    <td><input type="text" name="board_llm"  placeholder="Board / University" class="form-control"></td>
+<td><input type="date" name="passing_date_llm"    class="form-control"></td>
+    <td><input type="number" name="percentage_llm"  placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="achievement_llm"  placeholder="Achievement" class="form-control"></td>
+
+   </tr>
+   <tbody id="AdditionalEducational"></tbody>
+   <tr><td colspan="5" style="text-align: right">
+     <button type="button" onclick="AdditionalEducational_add();">+</button>
+   </td></tr>
+  </table>
+  </div>
+</div>
+<div><b>Details of Existing Empanelment(s) with other Organizations       
+          </b>
+  <div class="row">
+ <table class="table">
+   <tr><th>Name of Organization</th><th>Empanelled Since
+</th><th>Upload Empanelment Letter
+</th><th>Name of Reference in the Organization
+</th><th>Mobile No of the Reference Person
+</th></tr>
+       <tbody id="null">
+         <tr><td colspan="5" style="text-align: center;"><b>No Data Uploaded</b></td></tr>
+       </tbody>
+
+   <tbody id="ExistingEmpanelment"></tbody>
+   <tr><td colspan="5" style="text-align: right">
+     <button type="button" onclick="ExistingEmpanelment_add();">+</button>
+   </td></tr>
+  </table>
+  </div>
+</div>
+<div><b>Details of Main Cases Handeled [Min 3 cases to be submitted]            
+
+          </b>
+  <div class="row">
+ <table class="table">
+   <tr><th>Name of Court</th><th>Name of Case
+</th><th>Concerned Area of Law</th>
+<th>Date of Last Order</th>
+<th>Your Role</th>
+<th>Case Facts</th>
+</tr>
+    <tr><td><input type="text" placeholder="Court Name " name="CourtName[1]"  class="form-control" required></td>
+<td><input type="text" placeholder="Case Name " name="CaseName[1]"  class="form-control" required></td>
+<td><input type="text" placeholder="Concerned Area of Law  " name="LawConcernedArea[1]"   class="form-control" required></td>
+<td><input type="date" placeholder="Last Order Date " name="LastOrderDate[1]" class="form-control" required></td>
+<td><input type="text" placeholder="Your Role " name="Role[1]"  class="form-control" required></td>
+<td><textarea type="text" placeholder="Case Fact " name="CaseFact[1]"  class="form-control" min="500" max="5000" required></textarea></td>
+     </tr> 
+         <tr><td><input type="text" placeholder="Court Name " name="CourtName[2]"  class="form-control" required></td>
+<td><input type="text" placeholder="Case Name " name="CaseName[2]"  class="form-control" required></td>
+<td><input type="text" placeholder="Concerned Area of Law  " name="LawConcernedArea[2]"   class="form-control" required></td>
+<td><input type="date" placeholder="Last Order Date " name="LastOrderDate[2]" class="form-control" required></td>
+<td><input type="text" placeholder="Your Role " name="Role[2]"  class="form-control" required></td>
+<td><textarea type="text" placeholder="Case Fact " name="CaseFact[2]"  class="form-control" min="500" max="5000" required></textarea></td>
+     </tr>  
+              <tr><td><input type="text" placeholder="Court Name" name="CourtName[3]"  class="form-control" required></td>
+<td><input type="text" placeholder="Case Name " name="CaseName[3]"  class="form-control" required></td>
+<td><input type="text" placeholder="Concerned Area of Law  " name="LawConcernedArea[3]"   class="form-control" required></td>
+<td><input type="date" placeholder="Last Order Date " name="LastOrderDate[3]" class="form-control" required></td>
+<td><input type="text" placeholder="Your Role " name="Role[3]"  class="form-control" required></td>
+<td><textarea type="text" placeholder="Case Fact " name="CaseFact[3]"  class="form-control" min="500" max="5000" required></textarea></td>
+     </tr>   
+   <tbody id="MainCasesHandeled"></tbody>
+   <tr><td colspan="6" style="text-align: right">
+     <button type="button" onclick="MainCasesHandeled_add();">+</button>
+   </td></tr>
+  </table>
+  </div>
+</div>
+
+<div><b>Upload Documents
+      
+          </b>
+
+  <div class="row">
+ <table  width="50%">
+<tr><th>Aadhar Card*
+<input type="hidden" name="DocumentsName[1]" value="Aadhar Card">
+</th><td><input type="file" name="DocumentsFile_1"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword" required></td></tr>
+<tr><th>PAN Card*
+<input type="hidden" name="DocumentsName[2]" value="PAN Card">
+</th><td><input type="file" name="DocumentsFile_2"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword" required></td></tr>
+<tr><th>GST No [Optional]
+<input type="hidden" name="DocumentsName[3]" value="GST No">
+</th><td><input type="file" name="DocumentsFile_3"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword"></td></tr>
+<tr><th>Bar Council Registration Cert*
+<input type="hidden" name="DocumentsName[4]" value="Bar Council Registration Cert">
+</th><td><input type="file" name="DocumentsFile_4"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword"></td></tr>
+<tr><th>LLB Passing Cert/ Degree*
+<input type="hidden" name="DocumentsName[5]" value="LLB Passing Cert/ Degree">
+</th><td><input type="file" name="DocumentsFile_5"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword"></td></tr>
+   <tbody id="EmpanelmentDocuments"></tbody>
+   <tr><td colspan="5" style="text-align: right">
+     <button type="button" onclick="EmpanelmentDocuments_add();">+</button>
+   </td></tr>
+  </table>
+  </div>
+</div>
 
    <button type="submit" class="btn btn-primary">Next Step →</button>
 </form>
@@ -179,7 +303,46 @@ Advocate Panel
     </div>
 </div>
 <script>
-   function onchange_correspondance_address_same_as_permanent_address(checkbox) {
+   
+   function EmpanelmentDocuments_add() {
+ let x = Math.random() *10000000000000000;
+ document.getElementById('EmpanelmentDocuments').innerHTML+=`          <tr><th>
+<input type="text" name="DocumentsName[`+x+`]"  placeholder="Name" class="form-control">
+</th><td><input type="file" name="DocumentsFile_`+x+`"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword" required></td></tr>`;
+     }
+        function AdditionalEducational_add() {
+ let x = Math.random() *10000000000000000;
+ document.getElementById('AdditionalEducational').innerHTML+=`   <tr><th><input type="text" name="EducationName[`+x+`]"  placeholder="EducationName" class="form-control"></th>
+    <td><input type="text" name="board[`+x+`]"  placeholder="Board / University" class="form-control"></td>
+<td><input type="date" name="passing_date[`+x+`]"    class="form-control"></td>
+    <td><input type="number" name="percentage[`+x+`]"  placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="achievement[`+x+`]"  placeholder="Achievement" class="form-control"></td>
+
+   </tr>`;
+     }
+       function MainCasesHandeled_add() {
+ let x = Math.random() *10000000000000000;
+ document.getElementById('MainCasesHandeled').innerHTML+=`        <tr><td><input type="text" placeholder="Court Name" name="CourtName[`+x+`]"  class="form-control" ></td>
+<td><input type="text" placeholder="Case Name" name="CaseName[`+x+`]"  class="form-control" ></td>
+<td><input type="text" placeholder="Concerned Area of Law " name="LawConcernedArea[`+x+`]"   class="form-control" ></td>
+<td><input type="date" placeholder="Last Order Date" name="LastOrderDate[`+x+`]" class="form-control" ></td>
+<td><input type="text" placeholder="Your Role" name="Role[`+x+`]"  class="form-control" ></td>
+<td><textarea type="text" placeholder="Case Fact" name="CaseFact[`+x+`]"  class="form-control" min="500" max="5000" ></textarea></td>
+     </tr>  `;
+     }
+        function ExistingEmpanelment_add() {
+ let x = Math.random() *10000000000000000;
+document.getElementById('null').innerHTML='';
+
+ document.getElementById('ExistingEmpanelment').innerHTML+=`   <tr><th><input type="text" name="Empanelmentname[`+x+`]"  placeholder="Name of Organization" class="form-control"></th>
+    <td><input type="text" name="EmpanelledSince[`+x+`]"  placeholder="EmpanelledSince" class="form-control"></td>
+<td><input type="file" name="EmpanelmentLetter_`+x+`"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword"></td>
+    <td><input type="number" name="ReferenceName[`+x+`]"  placeholder="Name of Reference in the Organization  " class="form-control"></td>
+    <td><input type="text" name="ReferenceMobile[`+x+`]"  placeholder="ReferenceMobile" class="form-control"></td>
+
+   </tr>`;
+     }
+        function onchange_correspondance_address_same_as_permanent_address(checkbox) {
      
   if(checkbox.checked == true){
       var correspondance_address_div = document.getElementById("correspondance_address_div");
