@@ -9,7 +9,7 @@ Advocate Panel
         <div class="col-md-12">
             <div class="card">
  
-                <div class="card-body">
+                <div class="card-body table-responsive" >
                     <div style="text-align:center">
                  
  <h2><b>Details of the Individual Lawyer
@@ -71,7 +71,7 @@ Advocate Panel
    </div>
     <div class="form-group col-sm-4">
     <label for="permanent_street">Street / Locality</label>
-    <input type="text" class="form-control"  id="permanent_street" name="permanent_street"  placeholder="Enter Street">
+    <input type="text" class="form-control"  id="permanent_street" name="permanent_street"  placeholder="Enter Street" required>
    </div>
     <div class="form-group col-sm-4">
     <label for="permanent_district">District*</label>
@@ -174,28 +174,28 @@ Advocate Panel
    <tr><th>10th*</th>
     <td><input type="text" name="board_10" required placeholder="Board / University" class="form-control"></td>
 <td><input type="date" name="passing_date_10" required   class="form-control"></td>
-    <td><input type="number" name="percentage_10" required placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="percentage_10" required placeholder="Percentage Marks" class="form-control"></td>
     <td><input type="text" name="achievement_10" required placeholder="Achievement" class="form-control"></td>
 
    </tr>
 <tr><th>12th*</th>
     <td><input type="text" name="board_12" required placeholder="Board / University" class="form-control"></td>
 <td><input type="date" name="passing_date_12" required   class="form-control"></td>
-    <td><input type="number" name="percentage_12" required placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="percentage_12" required placeholder="Percentage Marks" class="form-control"></td>
     <td><input type="text" name="achievement_12" required placeholder="Achievement" class="form-control"></td>
 
    </tr>
    <tr><th>LLB*</th>
     <td><input type="text" name="board_llb" required placeholder="Board / University" class="form-control"></td>
 <td><input type="date" name="passing_date_llb" required   class="form-control"></td>
-    <td><input type="number" name="percentage_llb" required placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="percentage_llb" required placeholder="Percentage Marks" class="form-control"></td>
     <td><input type="text" name="achievement_llb" required placeholder="Achievement" class="form-control"></td>
 
    </tr>
    <tr><th>LLM</th>
     <td><input type="text" name="board_llm"  placeholder="Board / University" class="form-control"></td>
 <td><input type="date" name="passing_date_llm"    class="form-control"></td>
-    <td><input type="number" name="percentage_llm"  placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="percentage_llm"  placeholder="Percentage Marks" class="form-control"></td>
     <td><input type="text" name="achievement_llm"  placeholder="Achievement" class="form-control"></td>
 
    </tr>
@@ -271,7 +271,7 @@ Advocate Panel
           </b>
 
   <div class="row">
- <table  width="50%">
+ <table  class="col-sm-6">
 <tr><th>Aadhar Card*
 <input type="hidden" name="DocumentsName[1]" value="Aadhar Card">
 </th><td><input type="file" name="DocumentsFile_1"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword" required></td></tr>
@@ -305,23 +305,26 @@ Advocate Panel
 <script>
    
    function EmpanelmentDocuments_add() {
- let x = Math.random() *10000000000000000;
- document.getElementById('EmpanelmentDocuments').innerHTML+=`          <tr><th>
+ let x = Math.round(Math.random() *10000000000000000);
+ //alert(x);
+  document.getElementById('EmpanelmentDocuments').innerHTML+=`          <tr><th>
 <input type="text" name="DocumentsName[`+x+`]"  placeholder="Name" class="form-control">
 </th><td><input type="file" name="DocumentsFile_`+x+`"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword" required></td></tr>`;
      }
         function AdditionalEducational_add() {
- let x = Math.random() *10000000000000000;
+ let x = Math.round(Math.random() *10000000000000000);
+ //alert(x);
  document.getElementById('AdditionalEducational').innerHTML+=`   <tr><th><input type="text" name="EducationName[`+x+`]"  placeholder="EducationName" class="form-control"></th>
     <td><input type="text" name="board[`+x+`]"  placeholder="Board / University" class="form-control"></td>
 <td><input type="date" name="passing_date[`+x+`]"    class="form-control"></td>
-    <td><input type="number" name="percentage[`+x+`]"  placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="percentage[`+x+`]"  placeholder="Percentage Marks" class="form-control"></td>
     <td><input type="text" name="achievement[`+x+`]"  placeholder="Achievement" class="form-control"></td>
 
    </tr>`;
      }
        function MainCasesHandeled_add() {
- let x = Math.random() *10000000000000000;
+ let x = Math.round(Math.random() *10000000000000000);
+ //alert(x);
  document.getElementById('MainCasesHandeled').innerHTML+=`        <tr><td><input type="text" placeholder="Court Name" name="CourtName[`+x+`]"  class="form-control" ></td>
 <td><input type="text" placeholder="Case Name" name="CaseName[`+x+`]"  class="form-control" ></td>
 <td><input type="text" placeholder="Concerned Area of Law " name="LawConcernedArea[`+x+`]"   class="form-control" ></td>
@@ -331,13 +334,14 @@ Advocate Panel
      </tr>  `;
      }
         function ExistingEmpanelment_add() {
- let x = Math.random() *10000000000000000;
+ let x = Math.round(Math.random() *10000000000000000);
+ //alert(x);
 document.getElementById('null').innerHTML='';
 
  document.getElementById('ExistingEmpanelment').innerHTML+=`   <tr><th><input type="text" name="Empanelmentname[`+x+`]"  placeholder="Name of Organization" class="form-control"></th>
     <td><input type="text" name="EmpanelledSince[`+x+`]"  placeholder="EmpanelledSince" class="form-control"></td>
 <td><input type="file" name="EmpanelmentLetter_`+x+`"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword"></td>
-    <td><input type="number" name="ReferenceName[`+x+`]"  placeholder="Name of Reference in the Organization  " class="form-control"></td>
+    <td><input type="text" name="ReferenceName[`+x+`]"  placeholder="Name of Reference in the Organization  " class="form-control"></td>
     <td><input type="text" name="ReferenceMobile[`+x+`]"  placeholder="ReferenceMobile" class="form-control"></td>
 
    </tr>`;

@@ -53,17 +53,18 @@ $Validator=Validator::make($request->all(),[
 'permanent_state'=>'max:220',
 'permanent_country'=>'max:220',
 'permanent_pincode'=>'max:220',
-'aadhar_no'=>'max:12|required',
+'aadhar_no'=>'max:120|required',
 ]);
 if($Validator->fails()){
    $html='Data Error:<ul>';
-foreach($validator->messages()->all() as $k =>$v){
+foreach($Validator->messages()->all() as $k =>$v){
 $html.="<li>{$v}</li>";
 }
 $html.="</ul>";
 $html.='<br>
 <button onclick="history.back()">Go back</button>
 ';
+return $html;
     }else{
         $addresses=new AdvocateAddresses;
 $addresses->house_no=$request->input('permanent_house_no');
