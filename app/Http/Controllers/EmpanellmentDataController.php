@@ -45,7 +45,7 @@ $Validator=Validator::make($request->all(),[
 'bar_council_enrollment_no'=>'required|max:220',
 'date_of_bar_council_enrollment'=>'required|max:220',
 'email_id'=>'required|max:220',
-'mobile_number'=>'required|max:220',
+'mobile_number'=>'required|max:10|min:10',
 'whatsapp_no'=>'max:220',
 'permanent_house_no'=>'required|max:220',
 'permanent_street'=>'max:220',
@@ -53,7 +53,8 @@ $Validator=Validator::make($request->all(),[
 'permanent_state'=>'max:220',
 'permanent_country'=>'max:220',
 'permanent_pincode'=>'max:220',
-'aadhar_no'=>'max:120|required',
+'aadhar_no'=>'max:12|min:12|required',
+'pan_no'=>'max:10|min:10|required',
 ]);
 if($Validator->fails()){
    $html='Data Error:<ul>';
@@ -121,6 +122,7 @@ $error=false;
 $errors='';
 $file_uploaded=[];
 foreach ($DocumentsName as $key => $value) {
+  if($_FILES["DocumentsFile_".$key]["name"]!=""){
   $upload=EmpanellmentDataController::uploadimg("DocumentsFile_".$key,'uploads/EmpanellmentDocuments');
 if($upload['status']==false){
 $error=true;
@@ -138,7 +140,7 @@ $EmpanellmentDocuments->uid=Auth::user()->id;
 $EmpanellmentDocuments->save();
 }
 }
-
+}
 if(isset($_POST['Empanelmentname'])){
     $Empanelmentname=$_POST['Empanelmentname'];
     $EmpanelledSince=$_POST['EmpanelledSince'];

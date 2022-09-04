@@ -5,7 +5,17 @@
 All Advocates - >
 @endsection
 	@foreach($users as $get)
+  <?php
+function str_short($string, $length, $lastLength = 0, $symbol = '...')
+{
+    if (strlen($string) > $length) {
+        $result = substr($string, 0, $length - $lastLength - strlen($symbol)) . $symbol;
+        return $result . ($lastLength ? substr($string, - $lastLength) : '');
+    }
 
+    return $string;
+}
+ ?>
 <div class="container">
     <div class="row justify-content-center">
     	<div class="row">
@@ -63,7 +73,7 @@ So, please don't check any correction or data. Advocate can change them anytime;
 	<tr><th>Email Id</th><td>{{$AdvocateEmpanellment2->email_id}}</td>
         <th>Mobile Number</th><td>{{$AdvocateEmpanellment2->mobile_number}}</td></tr>
 	<tr><th>Whatsapp No</th><td>{{$AdvocateEmpanellment2->whatsapp_no}}</td><th>Date Of Birth</th><td>{{$AdvocateEmpanellment2->dob}}</td></tr>
-	<tr><td colspan="2">Permanent Address:-<table class="table>">
+	<tr><td colspan="2">Permanent Address:-<table class="table" border="1"> 
 	<?php 
  $addresses=App\Models\AdvocateAddresses::where('id',$AdvocateEmpanellment2->permanent_addresses_id)->get();
 if(count($addresses)>0){
@@ -86,7 +96,7 @@ $pincode=$address2->pincode;
 	 ?>
 </table>
     </td> <td colspan="2">Correspondance  Address:-
-        <table class="table>">
+        <table class="table" border="1">
 	<?php 
  $addresses=App\Models\AdvocateAddresses::where('id',$AdvocateEmpanellment2->correspondance_addresses_id)->get();
 if(count($addresses)>0){
@@ -107,7 +117,73 @@ $pincode=$address2->pincode;
 <?php
 }}
 	 ?></table></td></tr>
+    <tr><th>Gender</th><td>{{$AdvocateEmpanellment2->gender}}</td><th>Marital Status</th><td>{{$AdvocateEmpanellment2->marital_status}}</td></tr>
+    <tr><th>Aadhar No</th><td>{{$AdvocateEmpanellment2->aadhar_no}}</td><th>PAN No</th><td>{{$AdvocateEmpanellment2->pan_no}}</td></tr>
+    <tr><th>Gst No</th><td>{{$AdvocateEmpanellment2->gst_no}}</td></tr>
+ @if(count($EmpanellmentEducationalData)>0)
+
+<tr><td colspan="4">Educational Data
+<table class="table">
+   <tr><th>Education</th><th>Board / University</th><th>Date Of Passing</th><th>Percentage Marks</th><th>Achievement</th> </tr>
+ @foreach($EmpanellmentEducationalData as $get2)
+   <tr><th>{{$get2->name}}</th>
+    <td>{{$get2->board}}</td>
+<td>{{$get2->passing_date}}</td>
+    <td> {{$get2->percentage}}</td>
+    <td> {{$get2->achievement}}</td>
+    </tr>
+ @endforeach
+  
+
+ </table></tr></td>
+@endif
+ @if(count($ExistingEmpanelment)>0)
+   <tr><td colspan="10">
+ <div class="table-responsive">Details of Existing Empanelment(s) with other Organizations
+
+<table class="table">
+  <tr><th>Name</th><th>Empanelled Since</th><th>EmpanelmentLetter</th><th>ReferenceName</th><th>ReferenceMobile</th></tr>
+  @foreach($ExistingEmpanelment as $data)
+  <tr><td>{{$data->name}}</td><td>{{$data->EmpanelledSince}}</td><td><a href="{{url($data->EmpanelmentLetter)}}">View</a></td><td>{{$data->ReferenceName}}</td><td>{{$data->ReferenceMobile}}</td></tr>
+
+  @endforeach
+</table>
+</div></td></tr>
+ @endif
+<!--  -->
+ @if(count($MainCasesHandeled)>0)
+ <tr><td colspan="10"> <div class="table-responsive">
+    Details of Main Cases Handeled 
+   <table class="table">
+     <tr><th>Name of Court</th><th>Name of Case</th><th>Concerned Area of Law</th><th>Date of Last Order</th><th>Your Role</th><th>Case Facts</th></tr>
+@foreach($MainCasesHandeled as $MainCasesHandeled2)
+<tr>
+  <td>{{$MainCasesHandeled2->CourtName}}</td>
+  <td>{{$MainCasesHandeled2->CaseName}}</td>
+  <td>{{$MainCasesHandeled2->LawConcernedArea}}</td>
+  <td>{{$MainCasesHandeled2->LastOrderDate}}</td>
+  <td>{{$MainCasesHandeled2->Role}}</td>
+  <td><p title="{{$MainCasesHandeled2->CaseFact}}">{{str_short($MainCasesHandeled2->CaseFact,40)}}</p></td>
  
+</tr>  
+
+@endforeach
+</table></div>
+</td></tr>
+   @endif
+    @if(count($EmpanellmentDocuments)>0)
+    <tr><td colspan="10">
+ <div class="table-responsive">Documents Uploaded!
+<table class="table">
+    <tr><th>Type</th><th>File</th></tr>
+    @foreach($EmpanellmentDocuments as $get)
+    <tr><td>{{$get->type}}</td><td><a href="{{url($get->file)}}">View File</a></td> </tr>
+
+    @endforeach
+</table>
+</div></td></tr>
+ @endif
+<!--  -->
   </table>
 @endforeach
                 	       </div>

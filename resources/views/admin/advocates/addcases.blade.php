@@ -99,7 +99,7 @@ Success! {{\Session::get('success')}}
                  @if(count($AdvocateCases)>0)
 @foreach($AdvocateCases as $data)
       <tr><td>{{$data->PlaintiffName}}</td><td>{{$data->DefendantName}}</td><td>{{$data->CourtName}}</td>
-<td>{{$data->Dist}}</td><td>{{$data->Satate}}</td><td>{{$data->CourtCaseNo}}</td><td>{{$data->FillingDate}}</td><td>{{$data->LAETMCaseNo}}</td><td>{{$data->LAETMCin}}</td><td>{{$data->PresentStatus}}</td><td>{{$data->NextDateofHearing}}</td><td>{{$data->Remarks}}</td>
+<td>{{$data->Dist}}</td><td>{{$data->State}}</td><td>{{$data->CourtCaseNo}}</td><td>{{$data->FillingDate}}</td><td>{{$data->LAETMCaseNo}}</td><td>{{$data->LAETMCin}}</td><td>{{$data->PresentStatus}}</td><td>{{$data->NextDateofHearing}}</td><td>{{$data->Remarks}}</td>
                     </tr>
 @endforeach
 

@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
         use App\Models\BankDetails;
-use App\Models\AdvocateEmpanellment;
 use App\Models\AdvocateAddresses;
+use App\Models\AdvocateEmpanellment;
+use App\Models\EmpanellmentEducationalData;
+use App\Models\EmpanellmentDocuments;
+use App\Models\ExistingEmpanelment;
+use App\Models\MainCasesHandeled;
 
 class HomeController extends Controller
 {
@@ -50,9 +54,24 @@ class HomeController extends Controller
 
       $BankDetails=BankDetails::where('uid',$id)->get();
             $AdvocateEmpanellment=AdvocateEmpanellment::where('uid',$id)->get();
+            if(count($AdvocateEmpanellment)>0){
+                foreach($AdvocateEmpanellment as $AdvocateEmpanellment2){
+                    $advocate_empanellments_id=$AdvocateEmpanellment2->id;
+      $EmpanellmentEducationalData=EmpanellmentEducationalData::where('uid',$id)->where('advocate_empanellments_id',$advocate_empanellments_id)->get();
+   $ExistingEmpanelment=ExistingEmpanelment::where('uid',$id)->where('advocate_empanellments_id',$advocate_empanellments_id)->get();
+     $MainCasesHandeled=MainCasesHandeled::where('uid',$id)->where('advocate_empanellments_id',$advocate_empanellments_id)->get();
+ $EmpanellmentDocuments=EmpanellmentDocuments::where('uid',$id)->where('advocate_empanellments_id',$advocate_empanellments_id)->get();
+
+}
+        }else{
+            $ExistingEmpanelment=[];
+            $EmpanellmentEducationalData=[];
+             $MainCasesHandeled=[];
+             $EmpanellmentDocuments=[];
+        }
 
         $users=User::where('utype','advocate')->where('id',$id)->get();
-          return view('admin/advocates/view_details',compact('users','BankDetails','AdvocateEmpanellment'));
+          return view('admin/advocates/view_details',compact('users','BankDetails','AdvocateEmpanellment','EmpanellmentEducationalData','ExistingEmpanelment','MainCasesHandeled','EmpanellmentDocuments'));
      
     }
 

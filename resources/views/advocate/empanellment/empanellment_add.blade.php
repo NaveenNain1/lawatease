@@ -14,7 +14,10 @@ Advocate Panel
                  
  <h2><b>Details of the Individual Lawyer
  </b></h2> </div>
-  
+  <?php
+$date_before_18 = Carbon\Carbon::now()->subYears(18)->toDateString();
+$todaydate= Carbon\Carbon::now()->toDateString();
+   ?>
  
 <form method="post" enctype="multipart/form-data">
 	@csrf
@@ -43,7 +46,7 @@ Advocate Panel
    </div>
 <div class="form-group col-sm-4">
     <label for="date_of_bar_council_enrollment">Date of Bar Council Enrollment*</label>
-    <input type="date" class="form-control"  id="date_of_bar_council_enrollment" name="date_of_bar_council_enrollment" required >
+    <input type="date" class="form-control"  id="date_of_bar_council_enrollment" name="date_of_bar_council_enrollment" required max="{{$todaydate}}">
    </div>
 
 <div class="form-group col-sm-4">
@@ -53,11 +56,11 @@ Advocate Panel
 
 <div class="form-group col-sm-4">
     <label for="mobile_number">Mobile Number [linked with Aadhar Card]*</label>
-    <input type="number" class="form-control" required  id="mobile_number" name="mobile_number"  placeholder="Enter mobile No.">
+    <input type="number" class="form-control" required  id="mobile_number" name="mobile_number"  placeholder="Enter mobile No." onKeyPress="if(this.value.length==10) return false;" >
    </div>
 <div class="form-group col-sm-4">
     <label for="whatsapp_no">Whatsapp No</label>
-    <input type="number" class="form-control"   id="whatsapp_no" name="whatsapp_no"  placeholder="Enter Whatsapp No.">
+    <input type="number" class="form-control"   id="whatsapp_no" name="whatsapp_no"  placeholder="Enter Whatsapp No." onKeyPress="if(this.value.length==10) return false;" >
    </div>
 
 
@@ -87,7 +90,7 @@ Advocate Panel
    </div>
     <div class="form-group col-sm-4">
     <label for="permanent_pincode">Pincode*</label>
-    <input type="number" class="form-control" required id="permanent_pincode" name="permanent_pincode"  placeholder="Enter Pincode">
+    <input type="number" class="form-control" required id="permanent_pincode" name="permanent_pincode"  placeholder="Enter Pincode"  onKeyPress="if(this.value.length==6) return false;" >
    </div>
 
 </div>
@@ -122,7 +125,7 @@ Advocate Panel
    </div>
     <div class="form-group col-sm-4">
     <label for="correspondance_pincode">Pincode*</label>
-    <input type="number" class="form-control"    id="correspondance_pincode" name="correspondance_pincode"  placeholder="Enter Pincode">
+    <input type="number" class="form-control"    id="correspondance_pincode" name="correspondance_pincode"  placeholder="Enter Pincode"  onKeyPress="if(this.value.length==6) return false;" >
    </div>
 
 </div>
@@ -130,7 +133,7 @@ Advocate Panel
  <div class="row">
   <div class="form-group col-sm-4">
     <label for="dob">Date Of Birth*</label>
-    <input type="date" class="form-control"  required id="dob" name="dob"   >
+    <input type="date" class="form-control"  required id="dob" name="dob"  max="{{$date_before_18}}" >
    </div>
    <div class="form-group col-sm-4">
     <label for="gender">Gender*</label>
@@ -154,12 +157,12 @@ Advocate Panel
     <div class="form-group col-sm-4">
     <label for="aadhar_no">Aadhar No*</label>
     <input type="number" class="form-control" required  id="aadhar_no" name="aadhar_no"
-      placeholder="Enter Aadhar Card No.">
+      placeholder="Enter Aadhar Card No." onKeyPress="if(this.value.length==12) return false;" >
    </div>
     <div class="form-group col-sm-4">
     <label for="pan_no">PAN No*</label>
     <input type="text" class="form-control" required id="pan_no" name="pan_no"
-      placeholder="Enter PAN Card No.">
+      placeholder="Enter PAN Card No."  onKeyPress="if(this.value.length==12) return false;" >
    </div>
        <div class="form-group col-sm-4">
     <label for="gst_no">Gst No</label>
@@ -170,32 +173,36 @@ Advocate Panel
 <div><b>Educational & Professional Information           </b>
   <div class="row">
  <table class="table">
-   <tr><th>Education</th><th>Board / University</th><th>Date Of Passing</th><th>Percentage Marks</th><th>Achievement</th></tr>
+   <tr><th>Education</th><th>Board / University</th><th>Date Of Passing</ max="100"th><th>Percentage Marks</th><th>Achievement</th></tr>
    <tr><th>10th*</th>
     <td><input type="text" name="board_10" required placeholder="Board / University" class="form-control"></td>
-<td><input type="date" name="passing_date_10" required   class="form-control"></td>
-    <td><input type="text" name="percentage_10" required placeholder="Percentage Marks" class="form-control"></td>
+<td><input type="date" name="passing_date_10" max="{{$todaydate}}" required   class="form-control"></td>
+    <td><input type="number" max="100" name="percentage_10" required placeh max="100
+"older="Percentage Marks" class="form-control"></td>
     <td><input type="text" name="achievement_10" required placeholder="Achievement" class="form-control"></td>
 
    </tr>
 <tr><th>12th*</th>
     <td><input type="text" name="board_12" required placeholder="Board / University" class="form-control"></td>
-<td><input type="date" name="passing_date_12" required   class="form-control"></td>
-    <td><input type="text" name="percentage_12" required placeholder="Percentage Marks" class="form-control"></td>
+<td><input type="date" name="passing_date_12" max="{{$todaydate}}" required   class="form-control"></td>
+    <td><input type="number" max="100" name="percentage_12" required placeh max="100
+"older="Percentage Marks" class="form-control"></td>
     <td><input type="text" name="achievement_12" required placeholder="Achievement" class="form-control"></td>
 
    </tr>
    <tr><th>LLB*</th>
     <td><input type="text" name="board_llb" required placeholder="Board / University" class="form-control"></td>
-<td><input type="date" name="passing_date_llb" required   class="form-control"></td>
-    <td><input type="text" name="percentage_llb" required placeholder="Percentage Marks" class="form-control"></td>
+<td><input type="date" name="passing_date_llb" max="{{$todaydate}}" required   class="form-control"></td>
+    <td><input type="number" max="100" name="percentage_llb" required placeh max="100
+"older="Percentage Marks" class="form-control"></td>
     <td><input type="text" name="achievement_llb" required placeholder="Achievement" class="form-control"></td>
 
    </tr>
    <tr><th>LLM</th>
     <td><input type="text" name="board_llm"  placeholder="Board / University" class="form-control"></td>
-<td><input type="date" name="passing_date_llm"    class="form-control"></td>
-    <td><input type="text" name="percentage_llm"  placeholder="Percentage Marks" class="form-control"></td>
+<td><input type="date" name="passing_date_llm" max="{{$todaydate}}"    class="form-control"></td>
+    <td><input type="number" max="100" name="percentage_llm"  placeh max="100
+"older="Percentage Marks" class="form-control"></td>
     <td><input type="text" name="achievement_llm"  placeholder="Achievement" class="form-control"></td>
 
    </tr>
@@ -240,21 +247,21 @@ Advocate Panel
     <tr><td><input type="text" placeholder="Court Name " name="CourtName[1]"  class="form-control" required></td>
 <td><input type="text" placeholder="Case Name " name="CaseName[1]"  class="form-control" required></td>
 <td><input type="text" placeholder="Concerned Area of Law  " name="LawConcernedArea[1]"   class="form-control" required></td>
-<td><input type="date" placeholder="Last Order Date " name="LastOrderDate[1]" class="form-control" required></td>
+<td><input type="date" placeholder="Last Order Date " max="{{$todaydate}}" name="LastOrderDate[1]" class="form-control" required></td>
 <td><input type="text" placeholder="Your Role " name="Role[1]"  class="form-control" required></td>
 <td><textarea type="text" placeholder="Case Fact " name="CaseFact[1]"  class="form-control" min="500" max="5000" required></textarea></td>
      </tr> 
          <tr><td><input type="text" placeholder="Court Name " name="CourtName[2]"  class="form-control" required></td>
 <td><input type="text" placeholder="Case Name " name="CaseName[2]"  class="form-control" required></td>
 <td><input type="text" placeholder="Concerned Area of Law  " name="LawConcernedArea[2]"   class="form-control" required></td>
-<td><input type="date" placeholder="Last Order Date " name="LastOrderDate[2]" class="form-control" required></td>
+<td><input type="date" placeholder="Last Order Date " max="{{$todaydate}}" name="LastOrderDate[2]" class="form-control" required></td>
 <td><input type="text" placeholder="Your Role " name="Role[2]"  class="form-control" required></td>
 <td><textarea type="text" placeholder="Case Fact " name="CaseFact[2]"  class="form-control" min="500" max="5000" required></textarea></td>
      </tr>  
               <tr><td><input type="text" placeholder="Court Name" name="CourtName[3]"  class="form-control" required></td>
 <td><input type="text" placeholder="Case Name " name="CaseName[3]"  class="form-control" required></td>
 <td><input type="text" placeholder="Concerned Area of Law  " name="LawConcernedArea[3]"   class="form-control" required></td>
-<td><input type="date" placeholder="Last Order Date " name="LastOrderDate[3]" class="form-control" required></td>
+<td><input type="date" placeholder="Last Order Date " max="{{$todaydate}}" name="LastOrderDate[3]" class="form-control" required></td>
 <td><input type="text" placeholder="Your Role " name="Role[3]"  class="form-control" required></td>
 <td><textarea type="text" placeholder="Case Fact " name="CaseFact[3]"  class="form-control" min="500" max="5000" required></textarea></td>
      </tr>   
@@ -307,30 +314,41 @@ Advocate Panel
    function EmpanelmentDocuments_add() {
  let x = Math.round(Math.random() *10000000000000000);
  //alert(x);
-  document.getElementById('EmpanelmentDocuments').innerHTML+=`          <tr><th>
+  document.getElementById('EmpanelmentDocuments').innerHTML+=`          <tr id="id_`+x+`"><th>
 <input type="text" name="DocumentsName[`+x+`]"  placeholder="Name" class="form-control">
-</th><td><input type="file" name="DocumentsFile_`+x+`"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword" required></td></tr>`;
+</th><td><input type="file" name="DocumentsFile_`+x+`"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword" required></td>
+<td><button type="button" onclick="del_element('id_`+x+`')">X</td>
+
+</tr>`;
+     }
+     function del_element(v)
+     {
+document.getElementById(v).remove();
      }
         function AdditionalEducational_add() {
+     
  let x = Math.round(Math.random() *10000000000000000);
  //alert(x);
- document.getElementById('AdditionalEducational').innerHTML+=`   <tr><th><input type="text" name="EducationName[`+x+`]"  placeholder="EducationName" class="form-control"></th>
-    <td><input type="text" name="board[`+x+`]"  placeholder="Board / University" class="form-control"></td>
-<td><input type="date" name="passing_date[`+x+`]"    class="form-control"></td>
-    <td><input type="text" name="percentage[`+x+`]"  placeholder="Percentage Marks" class="form-control"></td>
-    <td><input type="text" name="achievement[`+x+`]"  placeholder="Achievement" class="form-control"></td>
-
+ document.getElementById('AdditionalEducational').innerHTML+=`   <tr id="id_`+x+`"><th><input type="number" name="EducationName[`+x+`]"  placeholder="EducationName" class="form-control" required></th>
+    <td><input type="text" name="board[`+x+`]"  placeholder="Board / University" class="form-control" required></td>
+<td><input type="date" name="passing_date[ max="{{$todaydate}}"`+x+`]"    class="form-control" required></td>
+    <td><input type="text" max="100" name="percentage[`+x+`]"  placeh max="100
+"older="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="achievement[`+x+`]"  placeholder="Achievement" class="form-control" required></td>
+<td><button type="button" onclick="del_element('id_`+x+`')">X</td>
    </tr>`;
      }
        function MainCasesHandeled_add() {
  let x = Math.round(Math.random() *10000000000000000);
  //alert(x);
- document.getElementById('MainCasesHandeled').innerHTML+=`        <tr><td><input type="text" placeholder="Court Name" name="CourtName[`+x+`]"  class="form-control" ></td>
+ document.getElementById('MainCasesHandeled').innerHTML+=`        <tr id="id_`+x+`"><td><input type="text" placeholder="Court Name" name="CourtName[`+x+`]"  class="form-control"required ></td>
 <td><input type="text" placeholder="Case Name" name="CaseName[`+x+`]"  class="form-control" ></td>
-<td><input type="text" placeholder="Concerned Area of Law " name="LawConcernedArea[`+x+`]"   class="form-control" ></td>
-<td><input type="date" placeholder="Last Order Date" name="LastOrderDate[`+x+`]" class="form-control" ></td>
-<td><input type="text" placeholder="Your Role" name="Role[`+x+`]"  class="form-control" ></td>
-<td><textarea type="text" placeholder="Case Fact" name="CaseFact[`+x+`]"  class="form-control" min="500" max="5000" ></textarea></td>
+<td><input type="text" placeholder="Concerned Area of Law " name="LawConcernedArea[`+x+`]"   class="form-control" required></td>
+<td><input type="date" placeholder="Last Order Date" max="{{$todaydate}}" name="LastOrderDate[`+x+`]" class="form-control" ></td>
+<td><input type="text" placeholder="Your Role" name="Role[`+x+`]"  class="form-control" required></td>
+<td><textarea type="text" placeholder="Case Fact" name="CaseFact[`+x+`]"  class="form-control" min="500" max="5000" required></textarea></td>
+<td><button type="button" onclick="del_element('id_`+x+`')">X</td>
+
      </tr>  `;
      }
         function ExistingEmpanelment_add() {
@@ -338,11 +356,12 @@ Advocate Panel
  //alert(x);
 document.getElementById('null').innerHTML='';
 
- document.getElementById('ExistingEmpanelment').innerHTML+=`   <tr><th><input type="text" name="Empanelmentname[`+x+`]"  placeholder="Name of Organization" class="form-control"></th>
-    <td><input type="text" name="EmpanelledSince[`+x+`]"  placeholder="EmpanelledSince" class="form-control"></td>
-<td><input type="file" name="EmpanelmentLetter_`+x+`"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword"></td>
-    <td><input type="text" name="ReferenceName[`+x+`]"  placeholder="Name of Reference in the Organization  " class="form-control"></td>
-    <td><input type="text" name="ReferenceMobile[`+x+`]"  placeholder="ReferenceMobile" class="form-control"></td>
+ document.getElementById('ExistingEmpanelment').innerHTML+=`   <tr id="id_`+x+`"><th><input type="text" name="Empanelmentname[`+x+`]"  placeholder="Name of Organization" class="form-control" required></th>
+    <td><input type="date" max="{{$todaydate}}" name="EmpanelledSince[`+x+`]"  placeholder="EmpanelledSince" class="form-control" required></td>
+<td><input type="file" name="EmpanelmentLetter_`+x+`"    class="form-control" accept=".png,.jpeg,.pdf,.jpg,application/msword" required></td>
+    <td><input type="text" name="ReferenceName[`+x+`]"  placeholder="Name of Reference in the Organization  " class="form-control" required></td>
+    <td><input type="text" name="ReferenceMobile[`+x+`]"  placeholder="ReferenceMobile" class="form-control" required></td>
+<td><button type="button" onclick="del_element('id_`+x+`')">X</td>
 
    </tr>`;
      }
@@ -365,5 +384,6 @@ document.getElementById('null').innerHTML='';
 setInterval(function() {
 	  onchange_correspondance_address_same_as_permanent_address(document.getElementById('checked_address'));
 }, 1000)
+
 </script> 
 @endsection
