@@ -37,6 +37,7 @@ Route::get('/customer/liptm/viewdetails/{id}', [App\Http\Controllers\CustomerPan
 
 
 Route::get('/admin/home', [App\Http\Controllers\AdminController::class, 'index']);
+Route::post('/admin/add_users', [App\Http\Controllers\AdminController::class, 'add_users']);
 Route::get('/admin/plans', [App\Http\Controllers\PlansController::class, 'index']);
 Route::post('/admin/plans', [App\Http\Controllers\PlansController::class, 'store']);
 Route::post('/admin/plans/add_features', [App\Http\Controllers\PlansController::class, 'add_features']);

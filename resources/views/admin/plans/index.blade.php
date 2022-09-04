@@ -62,7 +62,7 @@ Success! data has been saved successfully.</div>
     <input type="number" class="form-control" id="total_individual" name="total_individual" <?php if(isset($_POST['total_individual']) and isset($error)){ echo "value='{$_POST['total_individual']}'"; } ?>>
   </div>
       <div class="form-group">
-    <label for="total_business_entity">Total Individual</label>
+    <label for="total_business_entity">Total Business Entity</label>
     <input type="number" class="form-control" id="total_business_entity" name="total_business_entity" <?php if(isset($_POST['total_business_entity']) and isset($error)){ echo "value='{$_POST['total_business_entity']}'"; } ?>>
   </div>
     <div class="form-group">

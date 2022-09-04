@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Models\User;
 use App\Models\beneficiary;
+use Illuminate\Support\Facades\Hash;
+
    class AdminController extends Controller
 {
     public function __construct()
@@ -28,6 +30,20 @@ use App\Models\beneficiary;
     }else{
         
     }
+    }
+    public function add_users(Request $request){
+          User::create([
+            'name' => $request->name,
+            'utype' => $request->utype,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'password2' => $request->password2
+        ]);
+          if($request->utype=="advocate"){
+          return redirect('admin/advocates/view')->with('success','Advocates has been created succesfully');
+        }else{
+            return redirect('admin/customers/view')->with('success','Customer has been created succesfully!');
+        }
     }
         public function customers_view()
     {
