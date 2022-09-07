@@ -267,7 +267,7 @@ $MainCasesHandeled->uid=Auth::user()->id;
 $MainCasesHandeled->save();
 }
          ////////////////////
-    return redirect('advocate/empanellment_complete')->with('success','Success data has been saved successfully! You can now send it for review');
+    return redirect('advocate/empanellment_complete/send');
 
     }
 }

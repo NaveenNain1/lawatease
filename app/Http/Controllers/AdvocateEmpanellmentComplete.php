@@ -9,7 +9,7 @@ use App\Models\EmpanellmentEducationalData;
 use App\Models\EmpanellmentDocuments;
 use App\Models\ExistingEmpanelment;
 use App\Models\MainCasesHandeled;
-
+ 
 use Validator;
 use Auth;
 class AdvocateEmpanellmentComplete extends Controller
@@ -24,17 +24,20 @@ class AdvocateEmpanellmentComplete extends Controller
       $AdvocateEmpanellment=AdvocateEmpanellment::where('uid',Auth::user()->id)->get();
 if(count($AdvocateEmpanellment)>0){
   foreach($AdvocateEmpanellment as $AdvocateEmpanellment2){
-        $educational_data=EmpanellmentEducationalData::where('uid',Auth::user()->id)
+        $EmpanellmentEducationalData=$educational_data=EmpanellmentEducationalData::where('uid',Auth::user()->id)
         ->where('advocate_empanellments_id',$AdvocateEmpanellment2->id)
         ->get();
          $MainCasesHandeled=MainCasesHandeled::where('uid',Auth::user()->id)
+        ->where('advocate_empanellments_id',$AdvocateEmpanellment2->id)
+        ->get();
+         $ExistingEmpanelment=ExistingEmpanelment::where('uid',Auth::user()->id)
         ->where('advocate_empanellments_id',$AdvocateEmpanellment2->id)
         ->get();
          $EmpanellmentDocuments=EmpanellmentDocuments::where('uid',Auth::user()->id)
         ->where('advocate_empanellments_id',$AdvocateEmpanellment2->id)
         ->get();
 
-        return view('advocate/empanellment/empanellment_complete',compact('AdvocateEmpanellment','educational_data','MainCasesHandeled','EmpanellmentDocuments'));
+        return view('advocate/empanellment/empanellment_complete',compact('AdvocateEmpanellment','educational_data','MainCasesHandeled','EmpanellmentDocuments','EmpanellmentEducationalData','ExistingEmpanelment'));
    } }else{
       return redirect('advocate/empanellment_add');
     }

@@ -219,45 +219,70 @@ $pincode='';
 </div>
  <!-- Ending Of First Step Data -->
 @endforeach
-<br><br>
-<div class="row">
-<div class="card col-sm-6" style="border:1px solid;margin-top: -20px">
-  <div class="card-head">
-    Educational and professional information
-  </div>
-  <div class="card-body">
-    
-    <a class="btn btn-danger" href="empanellment_complete/educational_data">Upload / View information</a>
-  </div>
-  </div>
-  <div class="card col-sm-6" style="border:1px solid;margin-top: -20px">
-  <div class="card-head">
-Details of Existing Empanelment(s) with other Organizations
-  </div>
-  <div class="card-body">
-    
-    <a class="btn btn-danger" href="empanellment_complete/existing_empanelment">Upload / View information</a>
-  </div>
-  </div>
-    <div class="card col-sm-6" style="border:1px solid;margin-top: -20px">
-  <div class="card-head">
-Details of Main Cases Handeled [Min 3 cases to be submitted]            
-  </div>
-  <div class="card-body">
-    
-    <a class="btn btn-danger" href="empanellment_complete/MainCasesHandeled">Upload / View</a>
-  </div>
-  </div>
-      <div class="card col-sm-6" style="border:1px solid;margin-top: -20px">
-  <div class="card-head">
-Upload Documents*
-  </div>
-  <div class="card-body">
-    
-    <a class="btn btn-danger" href="empanellment_complete/EmpanellmentDocuments">Upload / View</a>
-  </div>
-  </div>
-  </div>
+ 
+   @if(count($EmpanellmentEducationalData)>0)
+ <b>Educational and professional information
+</b>
+ <table class="table">
+   <tr><th>Education</th><th>Board / University</th><th>Date Of Passing</th><th>Percentage Marks</th><th>Achievement</th> </tr>
+ @foreach($EmpanellmentEducationalData as $get2)
+   <tr><th>{{$get2->name}}</th>
+    <td><input type="text" name="boards[{{$get2->id}}]" readonly  value="{{$get2->board}}" required placeholder="Board / University" class="form-control"></td>
+<td><input type="date" name="passing_date[{{$get2->id}}]"  readonly value="{{$get2->passing_date}}" required   class="form-control"></td>
+    <td><input type="number" name="percentage[{{$get2->id}}]" readonly  value="{{$get2->percentage}}" required placeholder="Percentage Marks" class="form-control"></td>
+    <td><input type="text" name="achievement[{{$get2->id}}]" readonly  value="{{$get2->achievement}}" required placeholder="Achievement" class="form-control"></td>
+ 
+   </tr>
+ @endforeach
+ 
+
+ </table>
+ @endif
+ @if(count($ExistingEmpanelment)>0)
+ <b>Details of Existing Empanelment(s) with other Organizations
+</b>
+ <div class="table-responsive">
+<table class="table">
+  <tr><th>Name</th><th>Empanelled Since</th><th>EmpanelmentLetter</th><th>ReferenceName</th><th>ReferenceMobile</th> </tr>
+  @foreach($ExistingEmpanelment as $data)
+  <tr><td><input type="text" readonly class="form-control" value="{{$data->name}}"></td><td><input type="text" readonly class="form-control" value="{{$data->EmpanelledSince}}"></td><td><a href="{{url($data->EmpanelmentLetter)}}">View</a></td><td><input type="text" readonly class="form-control" value="{{$data->ReferenceName}}"></td><td><input type="text" readonly class="form-control" value="{{$data->ReferenceMobile}}"></td> </tr>
+
+  @endforeach
+</table>
+</div>
+ @endif
+ 
+  @if(count($MainCasesHandeled)>0)
+  <b>Details of Main Cases Handeled [Min 3 cases to be submitted]
+</b>
+  <table class="table">
+         <tr><th>Name of Court</th><th>Name of Case</th><th>Concerned Area of Law</th><th>Date of Last Order</th><th>Your Role</th><th>Case Facts</th></tr>
+
+@foreach($MainCasesHandeled as $MainCasesHandeled2)
+<tr>
+  <td><input type="text" class="form-control" value="{{$MainCasesHandeled2->CourtName}}" readonly></td>
+  <td><input type="text" class="form-control" value="{{$MainCasesHandeled2->CaseName}}" readonly></td>
+  <td><input type="text" class="form-control" value="{{$MainCasesHandeled2->LawConcernedArea}}" readonly></td>
+  <td><input type="text" class="form-control" value="{{$MainCasesHandeled2->LastOrderDate}}" readonly></td>
+  <td><input type="text" class="form-control" value="{{$MainCasesHandeled2->Role}}" readonly></td>
+  <td><textarea readonly class="form-control">{{$MainCasesHandeled2->CaseFact}}</textarea></td>
+  
+</tr>  
+
+@endforeach
+</table>
+   @endif
+@if(count($EmpanellmentDocuments)>0)
+ <div class="table-responsive">
+  <b>Uploaded Documents</b>
+<table class="table">
+  <tr><th>Type</th><th>File</th></tr>
+  @foreach($EmpanellmentDocuments as $get)
+  <tr><td>{{$get->type}}</td><td><a href="{{url($get->file)}}">View File</a></td></tr>
+
+  @endforeach
+</table></div>
+  @endif
   <!-- Button trigger modal -->
    @if($is_submitted!=1)
 

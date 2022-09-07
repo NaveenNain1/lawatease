@@ -302,7 +302,7 @@ $todaydate= Carbon\Carbon::now()->toDateString();
   </div>
 </div>
 
-   <button type="submit" class="btn btn-primary">Next Step →</button>
+   <button type="submit" class="btn btn-primary">Send For Review</button>
 </form>
                  </div>
             </div>
